@@ -39,7 +39,7 @@ public class MixinTitleScreen extends Screen {
         ButtonWidget.Builder continueButtonBuilder = ButtonWidget.builder(Text.translatable("continuebutton.continueButtonTitle"), button -> {
             if (ContinueButtonMod.lastLocal) {
                 if (!ContinueButtonMod.serverName.isBlank()) {
-                    QuickPlay.startSingleplayer(client, ContinueButtonMod.removeIllegalCharacters(ContinueButtonMod.serverName));
+                    QuickPlay.startSingleplayer(client, ContinueButtonMod.serverAddress);
                 } else {
                     CreateWorldScreen.create(this.client, this);
                 }
@@ -72,7 +72,7 @@ public class MixinTitleScreen extends Screen {
     private void atFirstRender() {
         new Thread(() -> {
             if (!ContinueButtonMod.lastLocal) {
-                serverInfo = new ServerInfo(ContinueButtonMod.serverName, ContinueButtonMod.serverAddress, false);
+                serverInfo = new ServerInfo(ContinueButtonMod.serverName, ContinueButtonMod.serverAddress, ServerInfo.ServerType.OTHER);
                 serverInfo.label = Text.translatable("multiplayer.status.pinging");
                 try {
                     serverListPinger.add(serverInfo, () -> {

@@ -48,11 +48,6 @@ public class ContinueButtonMod implements ClientModInitializer {
         }
     }
 
-    public static final String removeIllegalCharacters(String name) {
-        String safe = name.replaceAll("[\\\\\\\\/:*?\\\"<>|]", "_");
-        return safe;
-    }
-
     public static void saveConfig() {
         File configDir = new File(FabricLoader.getInstance().getConfigDir().toFile(), "continuebutton");
         File configFile = new File(configDir, "config.properties");
@@ -78,7 +73,7 @@ public class ContinueButtonMod implements ClientModInitializer {
                 lastLocal = true;
                 String levelName = client.getServer().getSaveProperties().getLevelName();
                 Path pathtoSave = Path.of(Files.simplifyPath(client.getServer().getSavePath(WorldSavePath.ROOT).toString()));
-                String folderName = pathtoSave.toFile().getName();
+                String folderName = pathtoSave.normalize().toFile().getName();
                 serverName = levelName;
                 serverAddress = folderName;
             } else {
