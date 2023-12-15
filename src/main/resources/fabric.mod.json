@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "id": "continue",
   "version": "${version}",
-  "name": "Continue",
+  "name": "Continue Button",
   "description": "Continue the last world or server you played from the title screen.",
   "authors": [
-    "umollu",
-    "mineblock11"
+    "IMB11 (mineblock11)",
+    "umollu"
   ],
   "contact": {
-    "homepage": "https://docs.mineblock11.dev/",
-    "sources": "https://github.com/mineblock11/continue-button",
-    "issues": "https://github.com/mineblock11/continue-button/issues"
+    "homepage": "https://imb11.dev/",
+    "sources": "https://github.com/imb11/continue-button",
+    "issues": "https://github.com/imb11/continue-button/issues"
   },
   "license": "MIT",
   "icon": "assets/continuebutton/icon.png",
@@ -28,6 +28,6 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": ">=1.20.2"
+    "minecraft": ">=1.20.3 <=1.20.4"
   }
 }
